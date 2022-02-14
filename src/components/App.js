@@ -5,6 +5,7 @@ import { AuthProvider } from "../contexts/AuthContext";
 import Auth from "../features/authentication";
 
 import Home from '../pages/Home'
+import Post from "../pages/Post";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <AuthProvider>
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/post" element={<Post />} />
         </Routes>
         <Auth />
       </AuthProvider>
