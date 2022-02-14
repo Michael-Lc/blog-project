@@ -6,6 +6,7 @@ import Auth from "../features/authentication";
 
 import Home from '../pages/Home'
 import Post from "../pages/Post";
+import User from "../pages/User";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/post" element={<Post />} />
+          <Route exact path="/user" element={<User />} />
         </Routes>
         <Auth />
       </AuthProvider>
