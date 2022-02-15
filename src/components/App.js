@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router";
 import { HashRouter as Router } from "react-router-dom";
 
 import { AuthProvider } from "../contexts/AuthContext";
+import { PostProvider } from "../contexts/PostContext";
 import Auth from "../features/authentication";
 
 import Home from '../pages/Home'
@@ -12,11 +13,14 @@ function App() {
   return (
     <Router>
       <AuthProvider>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/post" element={<Post />} />
-          <Route exact path="/user" element={<User />} />
-        </Routes>
+        <PostProvider>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/:user/:postTitle" element={<Post />} />
+            <Route exact path="/:user" element={<User />} />
+          </Routes>
+
+        </PostProvider>
         <Auth />
       </AuthProvider>
     </Router>
