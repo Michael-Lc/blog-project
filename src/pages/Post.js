@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useLocation } from 'react-router'
 import { Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -7,9 +6,10 @@ import NavBar from '../components/navbar';
 import { CreateUserLink } from '../utils/FormLinks';
 
 export default function Post() {
-  const { currentPost } = useLocation().state
-  const [post, setPost] = useState(currentPost);
+  const { post } = useLocation().state
   const userLink = CreateUserLink(post.postAuthor)
+  // setting document title
+  document.title = `${post.postTitle} | by ${post.postAuthor} | React Blog`
 
   return (
     <Container fluid>
@@ -17,7 +17,7 @@ export default function Post() {
       <Row className='justify-content-around'>
         <Col md="6">
           <Container>
-            <h1 className="display-4">{post.postTitle}</h1>
+            <h1 className="display-4 text-capitalize">{post.postTitle}</h1>
             <img src={post.postImage} alt="" className="d-block w-100 h-100" />
             <p>
               {post.postContent}

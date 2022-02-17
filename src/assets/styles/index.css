@@ -6,3 +6,11 @@ a {
 a:hover {
     color: inherit;
 }
+
+.card:hover h3 {
+    /* color: teal; */
+}
+
+.usernameLink:hover {
+    text-decoration: underline;
+}

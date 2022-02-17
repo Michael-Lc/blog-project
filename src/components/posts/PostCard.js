@@ -10,15 +10,15 @@ export default function PostCard({ post }) {
   const postLink = CreatePostLink(post)
 
   return (
-    <Card className='my-3'>
+    <Card className='my-3 shadow-sm'>
       <Card.Body>
-        <Link to={`/${userLink}/${postLink}`} state={{ currentPost: post }}>
-          <img src={post.postImage} alt="" className="d-block w-100 h-100" />
+        <Link to={`/${userLink}/${postLink}`} state={{ post }}>
+          <img src={post.postImage} alt="" className="card-image-top d-block w-100 h-100" />
           <h3>{post.postTitle}</h3>
           {/* <p>{post.postContent}</p> */}
         </Link>
         <div className="d-flex justify-content-between">
-          <Link to={`/${userLink}`}><b>{post.postAuthor}</b></Link>
+          <Link to={`/${userLink}`} className="usernameLink"><b>{post.postAuthor}</b></Link>
           <span>{post.postDate}</span>
         </div>
       </Card.Body>

@@ -5,14 +5,13 @@ import { usePosts } from '../../contexts/PostContext';
 import PostCard from './PostCard';
 
 export default function Posts() {
-  const { postsData } = usePosts()
-  const [posts, setPosts] = useState(postsData);
+  const { posts } = usePosts()
 
   return (
     <Container>
       <Row>
       {posts && posts.map(post => (
-          <Col md="6" key={post.postId}>
+          <Col md="4" key={post.postId}>
             <PostCard post={post} />
           </Col>
         ))
