@@ -1,26 +1,42 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router';
+import faker from '@faker-js/faker'
 
 import NavBar from '../components/navbar';
 import PostCard from '../components/posts/PostCard';
-import { useAuth } from '../contexts/AuthContext';
 import { usePosts } from '../contexts/PostContext';
-import { CreateUserLink } from '../utils/FormLinks';
+import UserLink from '../components/Links/UserLink';
 
 
 export default function User() {
-  const { currentUser } = useAuth()
-  const { userPosts } = usePosts()
-  const userLink = CreateUserLink(currentUser.username)
+  const { user } = useLocation().state
+  const { userPosts, setUserPosts } = usePosts()
   // setting document title
-  document.title = `${currentUser.name} | React Blog`
+  document.title = `${user} | React Blog`
+
+  useEffect(() => {
+    const userPostData = [];
+    for (let index = 0; index < 10; index++) {
+      const post = {
+        postId: faker.datatype.uuid(),
+        postTitle: faker.lorem.words(5),
+        postImage: faker.image.image(),
+        postDate: faker.date.past().toDateString(),
+        postAuthor: user,
+        postContent: faker.lorem.paragraphs(10, "\n\n")
+      };
+
+      userPostData.push(post);
+    }
+    setUserPosts(userPostData)
+  }, [user, setUserPosts])
 
   return (
     <Container fluid>
       <NavBar />
       <Row className='justify-content-around'>
-        <Col md="6">
+        <Col md="5">
           <Container>
             <div className="d-flex flex-column">
               {
@@ -32,10 +48,10 @@ export default function User() {
         <Col md="3" className='mt-5 pt-5'>
           <Row>
             <Col sm='4'>
-              <img src={`${currentUser.image}`} alt="" className="d-block w-100 h-100 rounded-circle" />
+              <img src={`${user.image}`} alt="" className="d-block w-100 h-100 rounded-circle" />
             </Col>
             <Col sm='8'>
-              <Link to={`/${userLink}`} className='d-block'><b>{currentUser.name}</b></Link>
+              <UserLink user={user} />
               <span className="d-block text-uppercase font-weight-light">200 followers</span>
             </Col>
           </Row>

@@ -3,7 +3,7 @@ import { Container, Navbar, Nav } from 'react-bootstrap';
 
 function NavBar() {
   return (
-    <Navbar expand="lg" sticky="top">
+    <Navbar expand="lg" sticky="top" className='bg-success'>
       <Container>
         <Navbar.Brand href="/">React-Blog</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

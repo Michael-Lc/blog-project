@@ -22,10 +22,6 @@ function App() {
 
         <Auth />
       </Providers>
-      {/* <AuthProvider>
-        <PostProvider>
-        </PostProvider>
-      </AuthProvider> */}
     </Router>
   )
 }

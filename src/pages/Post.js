@@ -1,13 +1,11 @@
 import { useLocation } from 'react-router'
 import { Col, Container, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
 import NavBar from '../components/navbar';
-import { CreateUserLink } from '../utils/FormLinks';
+import UserLink from '../components/Links/UserLink';
 
 export default function Post() {
   const { post } = useLocation().state
-  const userLink = CreateUserLink(post.postAuthor)
   // setting document title
   document.title = `${post.postTitle} | by ${post.postAuthor} | React Blog`
 
@@ -31,7 +29,7 @@ export default function Post() {
             </Col>
             <Col sm='8'>
               <span className="d-block text-uppercase font-weight-light">written by</span>
-              <Link to={`/${userLink}`} className='d-block'><b>{post.postAuthor}</b></Link>
+              <UserLink user={post.postAuthor} />
             </Col>
           </Row>
           <p className='my-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti saepe mollitia tempora ab soluta quisquam deleniti, dicta est ducimus! Obcaecati enim dicta perferendis! Vel, distinctio enim. Ullam, odio earum. Accusamus.</p>

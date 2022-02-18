@@ -3,6 +3,7 @@ import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import { CreatePostLink, CreateUserLink } from '../../utils/FormLinks';
+import UserLink from '../Links/UserLink';
 
 
 export default function PostCard({ post }) {
@@ -18,7 +19,7 @@ export default function PostCard({ post }) {
           {/* <p>{post.postContent}</p> */}
         </Link>
         <div className="d-flex justify-content-between">
-          <Link to={`/${userLink}`} className="usernameLink"><b>{post.postAuthor}</b></Link>
+          <UserLink user={post.postAuthor} />
           <span>{post.postDate}</span>
         </div>
       </Card.Body>
