@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { Button, Card, Container, Form } from 'react-bootstrap';
 
-function Signup() {
+export default function SignUpForm() {
   const emailRef = useRef()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
@@ -36,5 +36,3 @@ function Signup() {
     </Container>
   );
 }
-
-export default Signup;

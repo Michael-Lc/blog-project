@@ -3,7 +3,6 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useLocation } from 'react-router';
 import faker from '@faker-js/faker'
 
-import NavBar from '../components/navbar';
 import PostCard from '../components/posts/PostCard';
 import { usePosts } from '../contexts/PostContext';
 import UserLink from '../components/Links/UserLink';
@@ -34,7 +33,6 @@ export default function User() {
 
   return (
     <Container fluid>
-      <NavBar />
       <Row className='justify-content-around'>
         <Col md="5">
           <Container>

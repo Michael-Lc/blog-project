@@ -11,7 +11,7 @@ export default function Posts() {
     <Container>
       <Row>
       {posts && posts.map(post => (
-          <Col md="4" key={post.postId}>
+          <Col md="4" key={post.postId} className='my-2'>
             <PostCard post={post} />
           </Col>
         ))

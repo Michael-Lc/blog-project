@@ -23,3 +23,16 @@ a:hover {
 .usernameLink:hover {
     text-decoration: underline;
 }
+
+textarea {
+    resize: none;
+    text-transform: capitalize;
+}
+
+.postTitle {
+    font-size: 2rem;
+}
+
+.postContent {
+    overflow-y: hidden;
+}

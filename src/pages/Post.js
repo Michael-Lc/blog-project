@@ -1,7 +1,6 @@
 import { useLocation } from 'react-router'
 import { Col, Container, Row } from 'react-bootstrap';
 
-import NavBar from '../components/navbar';
 import UserLink from '../components/Links/UserLink';
 
 export default function Post() {
@@ -11,12 +10,11 @@ export default function Post() {
 
   return (
     <Container fluid>
-      <NavBar />
       <Row className='justify-content-around'>
         <Col md="6">
           <Container>
             <h1 className="display-4 text-capitalize">{post.postTitle}</h1>
-            <img src={post.postImage} alt="" className="d-block w-100 h-100" />
+            <img src={post.postImage} alt="" className="d-block my-5 shadow-sm w-100 h-100" />
             <p>
               {post.postContent}
             </p>

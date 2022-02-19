@@ -11,10 +11,10 @@ export default function PostCard({ post }) {
   const postLink = CreatePostLink(post)
 
   return (
-    <Card className='my-3 shadow-sm'>
-      <Card.Body>
-        <Link to={`/${userLink}/${postLink}`} state={{ post }}>
-          <img src={post.postImage} alt="" className="card-image-top d-block w-100 h-100" />
+    <Card className='my-3 shadow-sm h-100'>
+      <Card.Body className="h-100 d-flex flex-column justify-content-between">
+        <Link to={`/${userLink}/${postLink}`} state={{ post }} className="d-flex flex-column justify-content-between flex-grow-1">
+          <Card.Img variant="top" src={post.postImage} className="w-100 h-100" />
           <h3>{post.postTitle}</h3>
           {/* <p>{post.postContent}</p> */}
         </Link>
