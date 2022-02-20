@@ -1,28 +1,22 @@
-import React, { useState } from 'react';
-import { Collapse } from 'react-bootstrap';
+import React, { useRef } from 'react';
+import { Button, FormControl } from 'react-bootstrap';
 import { Drawer, } from 'react-bootstrap-drawer';
 import 'react-bootstrap-drawer/lib/style.css';
 
-export default function PostSideBar() {
-  const [open, setOpen] = useState(false);
-
-  const handleToggle = () => setOpen(!open);
+export default function PostSideBar({ handleSubmit, handleImageChange }) {
+  const headerImageRef = useRef()
 
   return (
     <Drawer>
-      <Drawer.Toggle onClick={ handleToggle } />
+      <Drawer.Overflow>
+        <Drawer.ToC className='d-flex flex-column'>
+          <Button className='m-2' onClick={handleSubmit}>Post</Button>
 
-      <Collapse in={ open }>
-        <Drawer.Overflow>
-          <Drawer.ToC>
-            <Drawer.Header href="/">Application</Drawer.Header>
-
-            <Drawer.Nav>
-              <Drawer.Item href="/settings">Settings</Drawer.Item>
-            </Drawer.Nav>
-          </Drawer.ToC>
-        </Drawer.Overflow>
-      </Collapse>
+          <Button className='m-2' onClick={() => headerImageRef.current.click()}>Choose Header Image</Button>
+          <FormControl className='d-none' ref={headerImageRef} onChange={handleImageChange} type='file' accept='image/*' />
+          {/* <FormControl className='d-none' ref={headerImageRef} onChange={handleImageChange} type='file' accept='image/*' /> */}
+        </Drawer.ToC>
+      </Drawer.Overflow>
     </Drawer>
   );
 }

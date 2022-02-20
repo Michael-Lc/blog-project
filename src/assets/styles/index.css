@@ -26,13 +26,23 @@ a:hover {
 
 textarea {
     resize: none;
-    text-transform: capitalize;
 }
 
 .postTitle {
     font-size: 2rem;
+    text-transform: capitalize;
 }
 
 .postContent {
     overflow-y: hidden;
+}
+
+@media only screen and (max-width: 569px) {
+    .sm-flex-col-reverse {
+        flex-direction: column-reverse;
+    }
+
+    .react-bootstrap-drawer-toc {
+        flex-direction: row !important;
+    }
 }

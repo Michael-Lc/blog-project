@@ -68,9 +68,13 @@ export function PostProvider({ children }) {
   const [posts, setPosts] = useState(postData)
   const [userPosts, setUserPosts] = useState(postData)
 
+  function addPost(post) {
+    setPosts([...posts, post])
+  }
+
   const value = {
     posts,
-    setPosts,
+    addPost,
     userPosts,
     setUserPosts,
   }
