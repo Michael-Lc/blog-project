@@ -10,8 +10,8 @@ import { CreatePostLink } from '../../utils/FormLinks';
 export default function PostForm() {
   const titleRef = useRef()
   const contentRef = useRef()
-  const [headerImg, setHeaderImg] = useState("")
   const { addPost } = usePosts()
+  const [headerImg, setHeaderImg] = useState("")
   const [titleError, setTitleError] = useState()
   const [contentError, setContentError] = useState()
   const navigate = useNavigate()
@@ -22,10 +22,10 @@ export default function PostForm() {
   }
 
   const handleSubmit = () => {
-    if (titleRef.current.value.length < 3) {
+    if (titleRef.current.value.trim().length < 3) {
       return setTitleError("border border-danger")
     } else setTitleError("")
-    if (contentRef.current.value < 3) {
+    if (contentRef.current.value.trim() < 3) {
       return setContentError("border border-danger")
     } else setContentError("")
 
