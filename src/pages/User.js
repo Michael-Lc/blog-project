@@ -5,8 +5,8 @@ import faker from '@faker-js/faker'
 
 import PostCard from '../components/posts/PostCard';
 import { usePosts } from '../contexts/PostContext';
-import UserLink from '../components/Links/UserLink';
 import UserLayout from '../layouts/UserLayout';
+import UserSidebar from '../components/sidebar/UserSidebar';
 
 
 export default function User() {
@@ -41,11 +41,8 @@ export default function User() {
           }
         </div>
       </Container>
-
-      <img src={`${user.image}`} alt="" className="d-block w-100 h-100 rounded-circle" />
-      <UserLink user={user} />
-      <span className="d-block text-uppercase font-weight-light">200 followers</span>
-      <p className='my-3 px-2'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti saepe mollitia tempora ab soluta quisquam deleniti, dicta est ducimus! Obcaecati enim dicta perferendis! Vel, distinctio enim. Ullam, odio earum. Accusamus.</p>
+      
+      <UserSidebar user={user} />
     </UserLayout>
   );
 }

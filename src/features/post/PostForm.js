@@ -57,7 +57,7 @@ export default function PostForm() {
   }
 
   return (
-    <Container fluid>
+    <Container fluid className='mb-2'>
       <Row className='sm-flex-col-reverse'>
         <Col xs={12} md={9} lg={10}>
           <Form className='w-100 h-100 d-flex flex-column px-md-5'>

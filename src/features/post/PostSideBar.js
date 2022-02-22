@@ -9,7 +9,7 @@ export default function PostSideBar({ handleSubmit, handleImageChange }) {
   return (
     <Drawer>
       <Drawer.Overflow>
-        <Drawer.ToC className='d-flex flex-column'>
+        <Drawer.ToC className='d-flex flex-column sm-flex-column'>
           <Button className='m-2' onClick={handleSubmit}>Post</Button>
 
           <Button className='m-2' onClick={() => headerImageRef.current.click()}>Choose Header Image</Button>
