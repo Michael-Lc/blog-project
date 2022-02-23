@@ -5,7 +5,7 @@ export function CreateUserLink(username) {
 }
 
 export function CreatePostLink(post) {
-  const postLink = `/${CreateUserLink(post.postAuthor)}/${post.postTitle.replace(/\s/g, "-").toLowerCase()}`;
+  const postLink = `/post/${CreateUserLink(post.postAuthor)}/${post.postTitle.replace(/\s/g, "-").toLowerCase()}`;
 
   return postLink
 }

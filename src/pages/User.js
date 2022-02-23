@@ -7,6 +7,7 @@ import PostCard from '../components/posts/PostCard';
 import { usePosts } from '../contexts/PostContext';
 import UserLayout from '../layouts/UserLayout';
 import UserSidebar from '../components/sidebar/UserSidebar';
+import NavBar from '../components/navbar';
 
 
 export default function User() {
@@ -33,16 +34,19 @@ export default function User() {
   }, [user, setUserPosts])
 
   return (
-    <UserLayout>
-      <Container className='p-2'>
-        <div className="d-flex flex-column">
-          {
-            userPosts && userPosts.map(post => <PostCard post={post} key={post.postId} />)
-          }
-        </div>
-      </Container>
-      
-      <UserSidebar user={user} />
-    </UserLayout>
+    <>
+      <NavBar />
+      <UserLayout>
+        <Container className='p-2'>
+          <div className="d-flex flex-column">
+            {
+              userPosts && userPosts.map(post => <PostCard post={post} key={post.postId} />)
+            }
+          </div>
+        </Container>
+        
+        <UserSidebar user={user} />
+      </UserLayout>
+    </>
   );
 }

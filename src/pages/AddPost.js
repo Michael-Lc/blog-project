@@ -1,7 +1,13 @@
 import React from 'react';
 
+import NavBar from '../components/navbar';
 import PostForm from '../features/post/PostForm';
 
 export default function AddPost() {
-  return <PostForm />;
+  return (
+    <>
+      <NavBar />
+      <PostForm />
+    </>
+  );
 }
